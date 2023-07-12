@@ -20,4 +20,11 @@ app.get("/todos", async (c) => {
   return c.json(items);
 });
 
+// app.get("/todos/:user_id", async (c) => {
+//   const user_id = c.req.param("user_id");
+
+//   const items = await c.env.TODOS.list({ prefix: `${user_id}_` });
+//   return c.json(items);
+// });
+
 export default app;
