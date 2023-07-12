@@ -1,2 +1,6 @@
-name = "my-app"
+name = "todos"
 compatibility_date = "2023-01-01"
+
+kv_namespaces = [
+    { binding = "TODOS", id = "6b6e83c0e6494db6820a7d8b19bf92c4", preview_id = "6b6e83c0e6494db6820a7d8b19bf92c4" }
+]

@@ -1,7 +1,23 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
 
-const app = new Hono()
+type Context = {
+  Bindings: {
+    TODOS: KVNamespace;
+  };
+};
 
-app.get('/', (c) => c.text('Hello Hono!'))
+const app = new Hono<Context>();
 
-export default app
+app.get("/", (c) => {
+  console.log("Someone is accessing this endpoint");
+
+  return c.text("Hello Hono!");
+});
+
+app.get("/todos", async (c) => {
+  const items = await c.env.TODOS.list();
+
+  return c.json(items);
+});
+
+export default app;
